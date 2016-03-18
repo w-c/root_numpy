@@ -1,0 +1,254 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Getting Started &mdash; root_numpy 4.4.0.dev0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/root_numpy.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="root_numpy 4.4.0.dev0 documentation" href="index.html"/>
+        <link rel="next" title="root_numpy FAQ" href="faq.html"/>
+        <link rel="prev" title="Installation" href="install.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> root_numpy
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.4.0.dev0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#try-root-numpy-on-cern-s-lxplus">Try root_numpy on CERN&#8217;s LXPLUS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#have-questions-or-found-a-bug">Have Questions or Found a Bug?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#contributing">Contributing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">root_numpy FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference/index.html">root_numpy Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">root_numpy</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Getting Started</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="getting-started">
+<h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="try-root-numpy-on-cern-s-lxplus">
+<h2>Try root_numpy on <a class="reference external" href="http://information-technology.web.cern.ch/services/lxplus-service">CERN&#8217;s LXPLUS</a><a class="headerlink" href="#try-root-numpy-on-cern-s-lxplus" title="Permalink to this headline">¶</a></h2>
+<p>First <a class="reference external" href="http://root.cern.ch/drupal/content/starting-root">set up ROOT</a>:</p>
+<div class="highlight-python"><div class="highlight"><pre>source /afs/cern.ch/sw/lcg/contrib/gcc/4.8/x86_64-slc6/setup.sh
+source /afs/cern.ch/sw/lcg/app/releases/ROOT/5.34.18/x86_64-slc6-gcc48-opt/root/bin/thisroot.sh
+</pre></div>
+</div>
+<p>Then create and activate a <a class="reference external" href="https://pypi.python.org/pypi/virtualenv">virtualenv</a> (change <cite>my_env</cite> at your will):</p>
+<div class="highlight-python"><div class="highlight"><pre>virtualenv my_env # necessary only the first time
+source my_env/bin/activate
+</pre></div>
+</div>
+<p>Now install NumPy and root_numpy:</p>
+<div class="highlight-python"><div class="highlight"><pre>pip install numpy
+pip install root_numpy
+</pre></div>
+</div>
+<p>Note that neither <cite>sudo</cite> nor <cite>&#8211;user</cite> is used, because we are in a virtualenv.</p>
+<p><cite>root_numpy</cite> should now be ready to use:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">root_numpy</span> <span class="kn">import</span> <span class="n">root2rec</span><span class="p">,</span> <span class="n">testdata</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">root2rec</span><span class="p">(</span><span class="n">testdata</span><span class="o">.</span><span class="n">get_filepath</span><span class="p">(</span><span class="s">&#39;single1.root&#39;</span><span class="p">))[:</span><span class="mi">20</span><span class="p">]</span> 
+<span class="go">rec.array([(1, 1.0, 1.0), (2, 3.0, 4.0), (3, 5.0, 7.0), (4, 7.0, 10.0),</span>
+<span class="go">       (5, 9.0, 13.0), (6, 11.0, 16.0), (7, 13.0, 19.0), (8, 15.0, 22.0),</span>
+<span class="go">       (9, 17.0, 25.0), (10, 19.0, 28.0), (11, 21.0, 31.0),</span>
+<span class="go">       (12, 23.0, 34.0), (13, 25.0, 37.0), (14, 27.0, 40.0),</span>
+<span class="go">       (15, 29.0, 43.0), (16, 31.0, 46.0), (17, 33.0, 49.0),</span>
+<span class="go">       (18, 35.0, 52.0), (19, 37.0, 55.0), (20, 39.0, 58.0)],</span>
+<span class="go">      dtype=[(&#39;n_int&#39;, &#39;&lt;i4&#39;), (&#39;f_float&#39;, &#39;&lt;f4&#39;), (&#39;d_double&#39;, &#39;&lt;f8&#39;)])</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="have-questions-or-found-a-bug">
+<h2>Have Questions or Found a Bug?<a class="headerlink" href="#have-questions-or-found-a-bug" title="Permalink to this headline">¶</a></h2>
+<p>Think you found a bug? Open a new issue here:
+<a class="reference external" href="https://github.com/rootpy/root_numpy/issues">github.com/rootpy/root_numpy/issues</a>.</p>
+<p>Also feel free to post questions or follow discussion on the
+<a class="reference external" href="http://groups.google.com/group/rootpy-users">rootpy-users</a> or
+<a class="reference external" href="http://groups.google.com/group/rootpy-dev">rootpy-dev</a> Google groups.</p>
+</div>
+<div class="section" id="contributing">
+<h2>Contributing<a class="headerlink" href="#contributing" title="Permalink to this headline">¶</a></h2>
+<p>Please post on the <a class="reference external" href="mailto:rootpy-dev&#37;&#52;&#48;googlegroups&#46;com">rootpy-dev<span>&#64;</span>googlegroups<span>&#46;</span>com</a> list if you have ideas
+or contributions. Feel free to fork
+<a class="reference external" href="https://github.com/rootpy/root_numpy">root_numpy on GitHub</a>
+and later submit a pull request.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="faq.html" class="btn btn-neutral float-right" title="root_numpy FAQ" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="install.html" class="btn btn-neutral" title="Installation" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, rootpy developers and contributors.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'4.4.0.dev0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
